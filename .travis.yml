@@ -1,19 +1,35 @@
 ---
-dist: bionic
-language: python
+# dist: bionic
+# language: python
 
-cache:
-  directories:
-    - /home/travis/.vagrant.d/boxes
+# cache:
+#   directories:
+#     - /home/travis/.vagrant.d/boxes
 
-install:
-  - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
-  - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-  - sudo dpkg -i vagrant_2.2.9_x86_64.deb
-  - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
+# install:
+#   - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+#   - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+#   - sudo dpkg -i vagrant_2.2.9_x86_64.deb
+#   - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
 
-script:
-  - sudo vagrant up --provider=libvirt
-  - sudo vagrant ssh -- echo "hello world"
-  - sudo vagrant halt
-  - sudo vagrant destroy --force
+# script:
+#   - sudo vagrant up --provider=libvirt
+#   - sudo vagrant ssh -- echo "hello world"
+#   - sudo vagrant halt
+#   - sudo vagrant destroy --force
+
+
+matrix:
+  include:
+
+    - language: node_js
+      dist: bionic
+      node_js:
+        - 8
+        - 6
+      jobs:
+        include:
+          # Define the release stage that runs semantic-release
+          - stage: release
+            node_js: lts/*
+            script: npx semantic-release
