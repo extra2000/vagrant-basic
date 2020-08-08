@@ -1,5 +1,7 @@
 # vagrant-basic
 
+[![build status](https://travis-ci.com/extra2000/vagrant-basic.svg?branch=master)](https://travis-ci.com/github/extra2000/vagrant-basic/builds) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Simple example on how to use Vagrant.
 
 
