@@ -5,3 +5,27 @@
 Simple example on how to use Vagrant to create Centos 7 virtual machine.
 
 ![localhost](docs/resources/localhost.svg)
+
+
+## Prerequisites
+
+You need to install [Vagrant](https://www.vagrantup.com/downloads). You may need to install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) if you want to use it as the provider for Vagrant. Otherwise, you can use [Libvirt](https://libvirt.org/downloads.html) on Linux or HyperV on Windows platforms.
+
+
+## Getting Started
+
+Clone this repository:
+```
+$ git clone https://github.com/extra2000/vagrant-basic.git
+```
+
+Then create Vagrant box named `centos-box` (you can change `--provider=virtualbox` to either `--provider=libvirt` or `--provider=hyperv`):
+```
+$ cd vagrant-basic
+$ vagrant up --provider=virtualbox
+```
+
+
+## More References
+
+* [Example Usage](docs/example-usage.md)
