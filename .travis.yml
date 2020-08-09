@@ -3,8 +3,24 @@
 dist: bionic
 language: minimal
 
+cache:
+  directories:
+    - /home/travis/.vagrant.d/boxes
+
 jobs:
   include:
+
+    - stage: test
+      install:
+        - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+        - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+        - sudo dpkg -i vagrant_2.2.9_x86_64.deb
+        - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
+      script:
+        - sudo vagrant up --provider=libvirt
+        - sudo vagrant ssh -- echo "hello world"
+        - sudo vagrant halt
+        - sudo vagrant destroy --force
 
     - stage: release
       install:
