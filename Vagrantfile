@@ -28,6 +28,21 @@ Vagrant.configure("2") do |config|
       v.autostart = false
     end
 
+    centos_box.vm.provider "virtualbox" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
+      override.vbguest.auto_update = false
+      override.vm.box_download_checksum_type = "sha256"
+      override.vm.box_download_checksum = "7e83943defcb5c4e9bebbe4184cce4585c82805a15e936b01b1e893b63dee2c5"
+      override.vm.network "private_network", type: "dhcp"
+      v.name = "centos-box"
+      v.gui = false
+      v.cpus = "2"
+      v.memory = "2048"
+      v.linked_clone = true
+      v.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+      v.customize ['modifyvm', :id, '--audio', 'none']
+    end
+
     centos_box.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ['.git/']
   end
 end
