@@ -43,6 +43,16 @@ Vagrant.configure("2") do |config|
       v.customize ['modifyvm', :id, '--audio', 'none']
     end
 
+    centos_box.vm.provider "hyperv" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
+      override.vbguest.auto_update = false
+      override.vm.box_download_checksum_type = "sha256"
+      override.vm.box_download_checksum = "51bb0495a2c01f25ed511ab02608d05c868285d17372be4efedd798f9ac1c81f"
+      v.maxmemory = "2048"
+      v.cpus = "2"
+      v.memory = "2048"
+    end
+
     centos_box.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ['.git/']
   end
 end
