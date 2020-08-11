@@ -22,3 +22,11 @@ jobs:
           sudo vagrant ssh -- echo "hello world"
           sudo vagrant halt
           sudo vagrant destroy --force
+
+workflows:
+  build-and-test:
+    jobs:
+      - build
+      - test:
+        requires:
+          - build
