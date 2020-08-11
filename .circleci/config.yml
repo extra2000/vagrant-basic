@@ -1,13 +1,15 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
-# Orchestrate or schedule a set of jobs
+
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
+  test:
     jobs:
-      - welcome/run
+      build:
+        steps:
+          - checkout
+          - run:
+              name: install vagrant, qemu/kvm, and libvirt
+              command: |
+                sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+                sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+                sudo dpkg -i vagrant_2.2.9_x86_64.deb
+                sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
