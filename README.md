@@ -4,6 +4,8 @@
 
 Simple example on how to use Vagrant to create Centos 7 virtual machine.
 
+NOTES: Unfortunately, CircleCI's host doesn't support nested virtualization. See [answer](https://support.circleci.com/hc/en-us/articles/360046299992-Can-I-use-WSL2-on-the-Windows-Executor-).
+
 ![localhost](docs/resources/localhost.svg)
 
 
