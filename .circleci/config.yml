@@ -23,10 +23,10 @@ jobs:
   #         sudo vagrant halt
   #         sudo vagrant destroy --force
 
-workflows:
-  build-and-test:
-    jobs:
-      - build
-      # - test:
-      #   requires:
-      #     - build
+# workflows:
+#   build-and-test:
+#     jobs:
+#       - build
+#       - test:
+#         requires:
+#           - build
