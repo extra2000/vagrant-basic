@@ -1,15 +1,13 @@
 version: 2.1
 
-workflows:
-  test:
-    jobs:
-      build:
-        steps:
-          - checkout
-          - run:
-              name: install vagrant, qemu/kvm, and libvirt
-              command: |
-                sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
-                sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-                sudo dpkg -i vagrant_2.2.9_x86_64.deb
-                sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+          name: install vagrant, qemu/kvm, and libvirt
+          command: |
+            sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+            sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+            sudo dpkg -i vagrant_2.2.9_x86_64.deb
+            sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
