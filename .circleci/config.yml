@@ -12,21 +12,3 @@ jobs:
           sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
           sudo dpkg -i vagrant_2.2.9_x86_64.deb
           sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
-  # test:
-  #   steps:
-  #     - checkout
-  #     - run:
-  #       name: Test
-  #       command: |
-  #         sudo vagrant up --provider=libvirt
-  #         sudo vagrant ssh -- echo "hello world"
-  #         sudo vagrant halt
-  #         sudo vagrant destroy --force
-
-# workflows:
-#   build-and-test:
-#     jobs:
-#       - build
-#       - test:
-#         requires:
-#           - build
