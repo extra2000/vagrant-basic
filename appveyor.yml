@@ -1,0 +1,10 @@
+os: Ubuntu
+platform:
+  - x64
+init:
+  - echo "hello init"
+install:
+  - echo "hello install"
+build_script:
+  - echo "hello build"
+test: off
