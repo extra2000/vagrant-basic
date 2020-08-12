@@ -8,7 +8,7 @@ install:
   - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
 build_script:
   - sudo vagrant up --provider=libvirt
-test:
   - sudo vagrant ssh -- echo "hello world"
   - sudo vagrant halt
   - sudo vagrant destroy --force
+test: off
