@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.3](https://github.com/extra2000/vagrant-basic/compare/v1.5.2...v1.5.3) (2020-09-26)
+
+
+### Continuous Integrations
+
+* **travis:** Add Slack notifications ([d34ba8e](https://github.com/extra2000/vagrant-basic/commit/d34ba8ebdbca418afdda61cefb0ae9a1ced7a188))
+
 ### [1.5.2](https://github.com/extra2000/vagrant-basic/compare/v1.5.1...v1.5.2) (2020-09-26)
 
 
