@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.5](https://github.com/extra2000/vagrant-basic/compare/v1.5.4...v1.5.5) (2020-10-02)
+
+
+### Continuous Integrations
+
+* **semantic-release:** Add fix type ([0098fe2](https://github.com/extra2000/vagrant-basic/commit/0098fe2171eced64cd569089cb439d1778304f5d))
+
 ### [1.5.4](https://github.com/extra2000/vagrant-basic/compare/v1.5.3...v1.5.4) (2020-10-01)
 
 
