@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.6](https://github.com/extra2000/vagrant-basic/compare/v1.5.5...v1.5.6) (2020-10-04)
+
+
+### Continuous Integrations
+
+* **semantic-release:** Fix patch updates with BREAKING CHANGE doesn't trigger major release ([94c5ba7](https://github.com/extra2000/vagrant-basic/commit/94c5ba7cd0157019258d684344c386ed91caf17e))
+
 ### [1.5.5](https://github.com/extra2000/vagrant-basic/compare/v1.5.4...v1.5.5) (2020-10-02)
 
 
